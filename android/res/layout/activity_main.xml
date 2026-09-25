@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a2e">
+    <LinearLayout
+        android:id="@+id/config_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#16213e"
+        android:padding="4dp"
+        android:gravity="center_vertical">
+        <EditText android:id="@+id/edit_url" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Base URL" android:inputType="textUri" android:text="https://ma.cubcloud.ai/v1" android:textSize="11sp" android:padding="4dp" android:maxLines="1" android:ellipsize="end" />
+        <EditText android:id="@+id/edit_api_key" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="API Key" android:inputType="textPassword" android:textSize="11sp" android:padding="4dp" android:maxLines="1" android:ellipsize="end" />
+        <EditText android:id="@+id/edit_model" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Model" android:inputType="text" android:text="Qwen3.6-35B-A3B-FP8" android:textSize="11sp" android:padding="4dp" android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+    <Button android:id="@+id/btn_connect" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Connect" android:padding="8dp" />
+    <TextView android:id="@+id/tv_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#0f3460" android:text="Not connected" android:textSize="10sp" android:padding="3dp" android:textColor="#aaa" />
+    <ScrollView android:id="@+id/scrollView" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+        <TextView android:id="@+id/tv_chat" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp" android:textSize="13sp" android:textColor="#e0e0e0" android:lineSpacingMultiplier="1.2" android:textIsSelectable="true" android:text="No conversation yet. Connect to start." />
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#16213e" android:padding="4dp">
+        <EditText android:id="@+id/edit_message" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Ask cubcoder to code..." android:inputType="textMultiLine|textLongMessage" android:maxLines="4" android:minLines="1" android:gravity="top|start" android:textSize="14sp" android:padding="6dp" android:background="@android:drawable/edit_text" />
+        <Button android:id="@+id/btn_send" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Send" android:textSize="12sp" android:padding="8dp" />
+        <Button android:id="@+id/btn_reset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reset" android:textSize="12sp" android:padding="8dp" />
+    </LinearLayout>
+</LinearLayout>
