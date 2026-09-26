@@ -13,6 +13,17 @@ and interactive modes, history compaction, and a multi-agent orchestrator that
 runs several coders in parallel (see below). Claude provider, streaming output,
 and richer UX are next.
 
+## Install
+
+Grab the prebuilt binary — installs to `/usr/local/bin/cubcoder` (uses `sudo`
+if needed). Keep `cc_update.sh` around and re-run it anytime to update.
+
+```bash
+wget https://raw.githubusercontent.com/cubcloudai/cubcoder/main/cc_update.sh
+chmod +x cc_update.sh
+./cc_update.sh
+```
+
 ## Build
 
 ```bash
