@@ -95,8 +95,15 @@ if [ "$ACTUAL" != "$EXPECTED" ]; then
 fi
 echo "Checksum OK"
 
-# Remove any stale copy that shadows DEST earlier in PATH
-rm -f "$HOME/.local/bin/cubcoder"
+# Remove any stale copy that shadows the default install earlier in PATH — but
+# only when installing to the default location, so a custom CUBCODER_DEST never
+# causes another install to be deleted (CC-22).
+DEFAULT_DEST="/usr/local/bin/cubcoder"
+SHADOW="$HOME/.local/bin/cubcoder"
+if [ "$DEST" = "$DEFAULT_DEST" ] && [ "$SHADOW" != "$DEST" ] && [ -e "$SHADOW" ]; then
+  echo "Removing stale shadow copy at $SHADOW"
+  rm -f "$SHADOW"
+fi
 
 # Install, using sudo only when we can't do it ourselves.
 # /usr/local/bin may not exist on a fresh Apple Silicon mac.
